@@ -9,10 +9,10 @@
 #   uso : # sh monta_ramdisk.sh 1024m    ou
 #         # sh monta_ramdisk.sh 1G
 #
-# teste de escrita
+# teste de velocidade de escrita
 #dd if=/dev/zero of=/tmp/ramdisk/zero bs=4k count=100000
 #
-# teste de leitura
+# teste de velocidade de leitura
 #dd if=/tmp/ramdisk/zero of=/dev/null bs=4k count=100000
 #
 #
