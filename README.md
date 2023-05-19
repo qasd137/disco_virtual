@@ -16,11 +16,15 @@
 	ex:  # sh monta_ramdisk.sh 1024m 
 
 	
-# teste de velocidade de escrita
+# teste de velocidade de escrita do ramdisk
 	$ dd if=/dev/zero of=/tmp/ramdisk/zero bs=4k count=100000
 
-# teste de velocidade de leitura
+# teste de velocidade de leitura do ramdisk
 	$ dd if=/tmp/ramdisk/zero of=/dev/null bs=4k count=100000
+	
+# teste de velocidade de leitura da RAM
+	# sysbench --test=memory --memory-block-size=1M --memory-total-size=10G run
+	
 	
 	
 											04/2023
