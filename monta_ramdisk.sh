@@ -1,20 +1,22 @@
 #!/bin/bash
 # -*- coding: utf-8 -*-
 #
-#   script para montar RAMDISK de 1 GB
+#   script para montar RAMDISK de 1 GB em ramdisk
 #
 #                                                   FJCT
-#                                                   04/2023
+#                                                   05/2023
 #
-#   uso : # sh monta_ramdisk.sh 1024m    ou
-#         # sh monta_ramdisk.sh 1G
+#   uso : # sh monta_ramdisk.sh 1024m ramdisk   ou
+#         # sh monta_ramdisk.sh 1G mydisk
 #
 # teste de velocidade de escrita
-#dd if=/dev/zero of=/tmp/ramdisk/zero bs=4k count=100000
+#  S dd if=/dev/zero of=/tmp/ramdisk/zero bs=4k count=100000
 #
 # teste de velocidade de leitura
-#dd if=/tmp/ramdisk/zero of=/dev/null bs=4k count=100000
+#  S dd if=/tmp/ramdisk/zero of=/dev/null bs=4k count=100000
 #
+# teste de velocidade de leitura da RAM
+#  # sysbench --test=memory --memory-block-size=1M --memory-total-size=10G run
 #
 
 declare TT
@@ -24,9 +26,10 @@ declare CAMINHO
 declare NOME
 
 TT=""
- USO="uso : # sh monta_ramdisk.sh 1024m"
-USO2="ou    # sh monta_ramdisk.sh 1G"
-NOME="ramdisk"
+ USO="uso : # sh monta_ramdisk.sh 1024m ramdisk"
+USO2="ou    # sh monta_ramdisk.sh 1G mydisk"
+#~ NOME="ramdisk"
+NOME=$2
 CAMINHO="/tmp/$NOME"
 
 shopt -s -o nounset
