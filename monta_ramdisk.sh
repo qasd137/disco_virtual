@@ -25,14 +25,27 @@ declare USO2
 declare CAMINHO
 declare NOME
 
+shopt -s -o nounset
+
+
 TT=""
- USO="uso : # sh monta_ramdisk.sh 1024m ramdisk"
+NOME=""
+USO1="uso : # sh monta_ramdisk.sh 1024m ramdisk"
 USO2="ou    # sh monta_ramdisk.sh 1G mydisk"
-#~ NOME="ramdisk"
-NOME=$2
+
+
+# se tem parametro nome
+if [ -n $2 ]  ;
+then
+	# nomeia
+	NOME=$2
+else
+	# senão usa default
+	NOME="ramdisk"
+fi
+
 CAMINHO="/tmp/$NOME"
 
-shopt -s -o nounset
 
 # pega parametro
 TT=$1
@@ -74,7 +87,7 @@ then
 	fi
 else
 
-    printf "\n %s \n %s \n" USO USO2
+    printf "\n %s \n %s \n" USO1 USO2
 
 fi
 
