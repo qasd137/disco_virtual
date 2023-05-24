@@ -13,7 +13,7 @@
 
 
 
-ex: # sh monta_ramdisk.sh 1024m
+ex: # sh monta_ramdisk.sh 1024m popdisk
 
 
 # ramdisk write speed test
